@@ -1,0 +1,21 @@
+{
+  "name": "@xiaoyexiang/videojs-resolution-switcher-v7",
+  "version": "0.0.1",
+  "description": "videojs@7 videojs-resolution-switcher 切换清晰度",
+  "main": "./lib/videojs-resolution-switcher-v7.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "videojs",
+    "html5",
+    "flash",
+    "video",
+    "player",
+    "resolution",
+    "source",
+    "videojs-plugin"
+  ],
+  "author": "xiaoyexiang",
+  "license": "Apache-2.0"
+}
