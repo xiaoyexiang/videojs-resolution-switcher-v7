@@ -50,6 +50,6 @@ npm i @xiaoyexiang/videojs-resolution-switcher-v7
 </script>
 ```
 
-## videojs-resolution-switcher README.md
+## kmoskwiak/videojs-resolution-switcher
 
-![README.md](https://github.com/kmoskwiak/videojs-resolution-switcher)
+![kmoskwiak/videojs-resolution-switcher](https://github.com/kmoskwiak/videojs-resolution-switcher)
