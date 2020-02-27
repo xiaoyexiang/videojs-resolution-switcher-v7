@@ -64,7 +64,7 @@ npm i @xiaoyexiang/videojs-resolution-switcher-v7
 
 本人项目是使用 Nuxt.js 的，下面贴上我的代码
 
-``` vue
+``` html
 <template>
     <div ref="playerWrap" class="player-wrap">
         <video
