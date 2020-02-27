@@ -14,10 +14,14 @@ npm i @xiaoyexiang/videojs-resolution-switcher-v7
 
 ## 引用、使用
 
+### 普通引用
+
 ``` html
+<link rel="stylesheet" href="videojs.css">
+<link rel="stylesheet" href="videojs-resolution-switcher-v7.css">
 <video id='video' class="video-js vjs-default-skin"></video>
 <script src="video.js"></script>
-<script src="videojs-resolution-switcher.js"></script>
+<script src="videojs-resolution-switcher-v7.js"></script>
 <script>
   videojs('video', {
     controls: true,
@@ -49,6 +53,133 @@ npm i @xiaoyexiang/videojs-resolution-switcher-v7
   })
 </script>
 ```
+
+### Nuxt.js 使用
+
+本人项目是使用 Nuxt.js 的，下面贴上我的代码
+
+``` vue
+<template>
+    <div ref="playerWrap" class="player-wrap">
+        <video
+        id="elm-yjPlayer"
+        ref="yjPlayer"
+        class="player video-js vjs-theme-fantasy vjs-default-skin"
+        ></video>
+    </div>
+</template>
+
+<script>
+import 'video.js/dist/video-js.min.css'
+import '@xiaoyexiang/videojs-resolution-switcher-v7/lib/videojs-resolution-switcher-v7.css'
+import '~/assets/css/videojs-themes/fantasy/index.css'
+import videojs from 'video.js'
+import 'videojs-contrib-hls'
+if (process.client) {
+  window.videojs = videojs
+  require('video.js/dist/lang/zh-CN.js')
+  require('@xiaoyexiang/videojs-resolution-switcher-v7')
+}
+
+export default {
+  components: {
+    YjImage
+  },
+  data() {
+    return {
+      playOptions: {
+        autoplay: false,
+        controls: true,
+        playbackRates: [0.75, 1, 1.5, 2],
+        language: 'zh-CN',
+        label: '超清',
+        plugins: {
+          videoJsResolutionSwitcher: {
+            dynamicLabel: true,
+            default: 'high'
+          }
+        },
+        sources: [],
+        controlBar: {
+          pictureInPictureToggle: false
+          // fullscreenToggle: false
+        },
+        html5: {
+          hls: {}
+        },
+        userActions: {
+          hotkeys: true
+        }
+      }
+    }
+  },
+  async asyncData({ $axios }) {
+    let videoUrlsData = await $axios.get('/api/video_url')
+      .then((res) => {
+        return Promise.resolve(res.data)
+      })
+    /*
+    * videoUrlsData 的格式
+    * [
+        {
+          src: "https://1252685978.vod2.myqcloud.com/9a27125cvodtransgzp1252685978/c0155b3f5285890788786290644/v.f240.m3u8?t=5e574d42&rlimit=5&us=e163173c30&sign=3ccd11cef7ee232ecabc2b0676694d45"
+          type: "application/x-mpegURL"
+          label: "超清"
+          res: 1080
+        },
+        {
+          src: "https://1252685978.vod2.myqcloud.com/9a27125cvodtransgzp1252685978/c0155b3f5285890788786290644/v.f230.m3u8?t=5e574d42&rlimit=5&us=d2c9b54554&sign=8f092e038987bfc506f43f3d8249e3ba"
+          type: "application/x-mpegURL"
+          label: "高清"
+          res: 720
+        },
+        {
+          src: "https://1252685978.vod2.myqcloud.com/9a27125cvodtransgzp1252685978/c0155b3f5285890788786290644/v.f220.m3u8?t=5e574d42&rlimit=5&us=a72989e3b8&sign=7201dc0ce1f68778fd4b6844f34b17ab"
+          type: "application/x-mpegURL"
+          label: "标清"
+          res: 480
+        }
+      ]
+
+      后台接口返回的数据格式可能不是我们想要的，可以使用 js 遍历处理下，让格式化成为上方例子
+    */
+    return {
+      videoUrlsData
+    }
+  },
+  mounted() {
+    this.initVideoPlayer()
+  },
+  beforeDestroy() {
+    // 页面销毁的时候，也要销毁播放器实例
+    if (this.player) {
+      this.player.dispose()
+    }
+  },
+  methods: {
+    initVideoPlayer() {
+      this.playOptions.sources = this.videoSourceList
+      if (process.client) {
+        // eslint-disable-next-line
+        this.player = videojs(this.$refs.yjPlayer, this.playOptions, () => {
+          // console.log(this.playOptions)
+          // console.log(this)
+          // console.log(this.player)
+          this.player.on('resolutionchange', () => {
+            console.log('[切换视频源]')
+          })
+        })
+      }
+    },
+  }
+}
+</script>
+
+```
+
+## GitHub
+
+各位喜欢的不妨到本项目 [GitHub](https://github.com/xiaoyexiang/videojs-resolution-switcher-v7) 的给个start，谢谢
 
 ## kmoskwiak/videojs-resolution-switcher
 

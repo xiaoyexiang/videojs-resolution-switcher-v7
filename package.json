@@ -1,6 +1,6 @@
 {
   "name": "@xiaoyexiang/videojs-resolution-switcher-v7",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "videojs@7 videojs-resolution-switcher 切换清晰度",
   "main": "./lib/videojs-resolution-switcher-v7.js",
   "scripts": {
@@ -17,5 +17,9 @@
     "videojs-plugin"
   ],
   "author": "xiaoyexiang",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/xiaoyexiang/videojs-resolution-switcher-v7.git"
+  }
 }
