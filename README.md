@@ -64,7 +64,7 @@ npm i @xiaoyexiang/videojs-resolution-switcher-v7
 
 本人项目是使用 Nuxt.js 的，下面贴上我的代码
 
-``` html
+``` vue
 <template>
     <div ref="playerWrap" class="player-wrap">
         <video
@@ -80,7 +80,6 @@ import 'video.js/dist/video-js.min.css'
 import '@xiaoyexiang/videojs-resolution-switcher-v7/lib/videojs-resolution-switcher-v7.css'
 import '~/assets/css/videojs-themes/fantasy/index.css'
 import videojs from 'video.js'
-import 'videojs-contrib-hls'
 
 // 因为项目内的 js 使用了 window，所以必须要在客户端 ```process.client``` 引入，不然打包的时候会报错
 if (process.client) {
