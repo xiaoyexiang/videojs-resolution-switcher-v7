@@ -90,9 +90,6 @@ if (process.client) {
 }
 
 export default {
-  components: {
-    YjImage
-  },
   data() {
     return {
       playOptions: {
