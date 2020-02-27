@@ -4,6 +4,10 @@
 
 > 特此声明：该包仅个人开发以及维护，后期不一定会维护，入坑慎重！如若发生版权问题，最终版权归原作者所有[kmoskwiak](https://github.com/kmoskwiak)，若使用该包所产生的法律责任，本人概不负责！
 
+## GitHub
+
+各位喜欢的不妨到本项目 [GitHub](https://github.com/xiaoyexiang/videojs-resolution-switcher-v7) 的给个start，谢谢
+
 ## 安装
 
 ```npm```安装```videojs-resolution-switcher-v7```插件
@@ -180,10 +184,6 @@ export default {
 </script>
 
 ```
-
-## GitHub
-
-各位喜欢的不妨到本项目 [GitHub](https://github.com/xiaoyexiang/videojs-resolution-switcher-v7) 的给个start，谢谢
 
 ## kmoskwiak/videojs-resolution-switcher
 
