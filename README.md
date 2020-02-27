@@ -14,6 +14,8 @@ npm i @xiaoyexiang/videojs-resolution-switcher-v7
 
 ## 引用、使用
 
+记得引用 css 文件，如果样式不是你想要的，可以自己定义 css
+
 ### 普通引用
 
 ``` html
@@ -75,6 +77,8 @@ import '@xiaoyexiang/videojs-resolution-switcher-v7/lib/videojs-resolution-switc
 import '~/assets/css/videojs-themes/fantasy/index.css'
 import videojs from 'video.js'
 import 'videojs-contrib-hls'
+
+// 因为项目内的 js 使用了 window，所以必须要在客户端 ```process.client``` 引入，不然打包的时候会报错
 if (process.client) {
   window.videojs = videojs
   require('video.js/dist/lang/zh-CN.js')
