@@ -1,6 +1,6 @@
 {
   "name": "@xiaoyexiang/videojs-resolution-switcher-v7",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "videojs@7 videojs-resolution-switcher 切换清晰度",
   "main": "./lib/videojs-resolution-switcher-v7.js",
   "scripts": {
